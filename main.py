@@ -2,7 +2,7 @@ from context import getRoomLink, isRoomComplete, getRoomId
 from telebot.async_telebot import AsyncTeleBot
 import os
 
-token = os.environ.get("TokenKontekstno")
+token = os.environ.get("TOKEN_KONTEKSTNO")
 rooms = {}
 bot = AsyncTeleBot(token)
 
@@ -26,8 +26,6 @@ async def send_welcome(message):
         await bot.pin_chat_message(message.chat.id, sm.message_id)
 
 async def f():
-    
-    # threading.Timer(5.0, f).start()  # Перезапуск через 5 секунд
     while True:
         await asyncio.sleep(5)
         for key in rooms:

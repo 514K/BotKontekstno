@@ -31,11 +31,14 @@ async def f():
             await asyncio.sleep(5)
             for key in rooms:
                 if isRoomComplete(rooms[key]):
+                    await bot.unpin_all_chat_messages(key)
                     await bot.send_message(key, "Комната " + rooms[key] + " успешно завершена")
                     roomId = getRoomId()
                     rooms[key] = roomId
                     sm = await bot.send_message(key, "Ваша комната - " + getRoomLink(roomId))
                     await bot.pin_chat_message(key, sm.message_id)
+
+                    
         except:
             pass
 

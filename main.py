@@ -1,6 +1,7 @@
 from context import getRoomLink, isRoomComplete, getRoomId
 from telebot.async_telebot import AsyncTeleBot
 import os
+from redis import Redis
 
 token = os.environ.get("TOKEN_KONTEKSTNO")
 rooms = {}

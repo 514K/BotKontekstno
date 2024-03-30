@@ -11,9 +11,6 @@ async def send_welcome(message):
     msgText = ""
     pinMsg = False
     if str(message.chat.id) in rooms.keys() and not isRoomComplete(rooms[str(message.chat.id)]):
-        print(str(message.chat.id) in rooms.keys())
-        print(not isRoomComplete(rooms[str(message.chat.id)]))
-        print(str(message.chat.id) in rooms.keys() and not isRoomComplete(rooms[str(message.chat.id)]))
         msgText = "Вам необходимо закончить комнату - " + getRoomLink(rooms[str(message.chat.id)])
     else:
         roomId = getRoomId()
